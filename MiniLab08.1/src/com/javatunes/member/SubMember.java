@@ -14,4 +14,5 @@ public class SubMember extends Member {
         // NOTE: there is a call to super() here! as the first line of code
         System.out.println("SubMember ctor");
     }
+
 }

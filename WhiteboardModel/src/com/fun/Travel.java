@@ -1,5 +1,7 @@
 package com.fun;
 
+import com.fun.test.IllegalTravelException;
+
 import java.time.LocalTime;
 
 public class Travel {
@@ -68,9 +70,10 @@ public class Travel {
     public void setNumberOfVisits(int visits) {
         if (visits >= this.MAX_DESTINATIONS_TRAVELLED_YEARLY
                 || visits <= this.MIN_DESTINATIONS_TRAVELLED_YEARLY) {
-            System.out.println(visits + " is an INVALID number of visits.");
+            throw new IllegalTravelException(visits + " is an INVALID number of visits.");
+        }else {
+            this.numberOfVisits = visits;
         }
-        this.numberOfVisits = visits;
     }
 
     public String getTravelYear() {

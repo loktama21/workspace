@@ -9,15 +9,19 @@
 package com.poetry.io;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+
+import static java.lang.System.out;
 
 public class PoemClient {
 
     /**
      * To run one method at a time, uncomment the call to the one you want to execute.
      */
-    public static void main(String[] args) {
-        // readPoem();
+    public static void main(String[] args) throws FileNotFoundException {
+         readPoem();
         // writePoem();
     }
 
@@ -33,10 +37,14 @@ public class PoemClient {
      * Use a BufferedReader wrapped around a FileReader.
      * The try-with-resources below allows you to initialize the stream and auto-close it.
      */
-    private static void readPoem() {
+    private static void readPoem() throws FileNotFoundException {
         // TODO: initialize 'reader' variable and complete the try block
-        try (BufferedReader reader = null) {
-
+        try (BufferedReader reader = null){
+            BufferedReader input = new BufferedReader(new FileReader("famous-poem.txt"));
+            String line;
+            if((line = input.readLine()) != null) {
+                out.println(line);
+            }
         }
         catch (IOException e) {
             e.printStackTrace();
